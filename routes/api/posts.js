@@ -127,7 +127,7 @@ router.get("/:id", auth, async (req, res) => {
       if (likeIndex === -1) {
         return res.status(400).json({ msg: "Post has not been liked" });
       }
-      post.likes.slice(likeIndex, 1);
+      post.likes.splice(likeIndex, 1);
       await post.save();
 
       res.json(post.likes);
